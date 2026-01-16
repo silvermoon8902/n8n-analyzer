@@ -287,7 +287,7 @@ export default function Home() {
       <footer className="border-t border-n8n-gray py-6 mt-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-sm text-gray-500">
-            Demo by Jason Hiroshi • Senior n8n Developer
+            Demo by Wilfredo Rosario • Senior n8n Developer
           </p>
         </div>
       </footer>
