@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --n8n-orange: #ff6d5a;
+  --n8n-dark: #1a1a2e;
+  --n8n-darker: #0f0f1a;
+}
+
+body {
+  background: var(--n8n-darker);
+  color: #e0e0e0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a6a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a7a;
+}
+
+/* Workflow node styles */
+.workflow-node {
+  @apply relative bg-n8n-gray border border-n8n-light rounded-lg p-4 transition-all duration-300;
+}
+
+.workflow-node:hover {
+  @apply border-n8n-orange shadow-lg;
+  box-shadow: 0 0 20px rgba(255, 109, 90, 0.2);
+}
+
+.workflow-node.active {
+  @apply border-n8n-orange;
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 109, 90, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(255, 109, 90, 0.2);
+  }
+}
+
+/* Connection lines */
+.connection-line {
+  stroke: #4a4a6a;
+  stroke-width: 2;
+  fill: none;
+}
+
+.connection-line.active {
+  stroke: var(--n8n-orange);
+  stroke-dasharray: 5, 5;
+  animation: dash 0.5s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* JSON viewer */
+.json-key {
+  color: #ff6d5a;
+}
+
+.json-string {
+  color: #98c379;
+}
+
+.json-number {
+  color: #d19a66;
+}
+
+.json-boolean {
+  color: #56b6c2;
+}
+
+.json-null {
+  color: #abb2bf;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply h-2 bg-n8n-gray rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-gradient-to-r from-n8n-orange to-orange-400 rounded-full transition-all duration-500;
+}
+
+/* Score circle */
+.score-circle {
+  @apply relative w-24 h-24;
+}
+
+.score-circle svg {
+  transform: rotate(-90deg);
+}
+
+.score-circle .score-value {
+  @apply absolute inset-0 flex items-center justify-center text-2xl font-bold;
+}
+
+/* Glowing effect */
+.glow-orange {
+  box-shadow: 0 0 30px rgba(255, 109, 90, 0.3);
+}
+
+/* Code block */
+.code-block {
+  @apply bg-n8n-darker rounded-lg p-4 font-mono text-sm overflow-x-auto;
+}
